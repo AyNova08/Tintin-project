@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Les Aventures de Tintin</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --nav-color: #dddddd;
+    }
+    [data-theme="dark"] {
+      --bg-color: #1e1e1e;
+      --text-color: #ffffff;
+      --nav-color: #333333;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    nav {
+      background-color: var(--nav-color);
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+    .album-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .album {
+      width: 150px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .album img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .album p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+    .album:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Accueil</a> |
+    <a href="personnages.html">Personnages</a> |
+    <a href="albums.html">Albums</a>
+  </nav>
+
+  <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">☀️</button>
+
+  <h1>L'essentiel à propos de Tintin et Hergé</h1>
+
+  <p>
+    Les Aventures de Tintin est une série de bandes dessinées, mondialement connue, créée à partir de 1929 par le dessinateur et scénariste belge Hergé, de son vrai nom Georges Remi (1907-1983). La série est composée de 24 albums, du premier album Tintin au Pays des Soviets en 1930 jusqu'au dernier, Tintin et l'Alph-Art (album inachevé).
+  </p>
+
+  <h2>Albums célèbres</h2>
+  <ul>
+    <li>Le Crabe aux Pinces d’Or</li>
+    <li>Les 7 Boules de Cristal</li>
+    <li>Objectif Lune</li>
+    <li>On a marché sur la Lune</li>
+  </ul>
+
+  <h2>Galerie</h2>
+  <img src="images/tintin1.jpg" alt="Tintin 1" />
+  <img src="images/tintin2.jpg" alt="Tintin 2" />
+
+  <script>
+    function setThemeIcon(theme) {
+      const btn = document.querySelector('.theme-toggle');
+      btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      setThemeIcon(newTheme);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      setThemeIcon(savedTheme);
+    });
+  </script>
+</body>
+</html>
