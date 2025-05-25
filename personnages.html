@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Les Personnages</title>
-  <link rel="stylesheet" href="css/style.css" />
   <style>
     :root {
       --bg-color: #ffffff;
@@ -16,7 +15,7 @@
       --bg-color: #1e1e1e;
       --text-color: #ffffff;
       --nav-color: #333333;
-      --bio-color: #cccccc;
+      --bio-color: #ffffff;
     }
 
     body {
@@ -39,11 +38,13 @@
       text-decoration: none;
       margin: 0 10px;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      color: var(--text-color);
     }
 
     ul {
@@ -51,12 +52,14 @@
       padding: 0;
       max-width: 800px;
       margin: auto;
+      color: var(--text-color);
     }
 
     li {
       font-weight: bold;
       margin-bottom: 5px;
       font-size: 1.2em;
+      color: var(--text-color);
     }
 
     .biography {
@@ -122,16 +125,19 @@
     }
 
     function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
+      html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       setThemeIcon(newTheme);
     }
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    window.onload = () => setThemeIcon(savedTheme);
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      setThemeIcon(savedTheme);
+    });
   </script>
 </body>
 </html>
