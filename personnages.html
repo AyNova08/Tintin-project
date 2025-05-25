@@ -8,14 +8,14 @@
       --bg-color: #ffffff;
       --text-color: #000000;
       --nav-color: #dddddd;
-      --bio-color: #444444;
+      --card-bg: #f9f9f9;
     }
 
     [data-theme="dark"] {
       --bg-color: #1e1e1e;
       --text-color: #ffffff;
       --nav-color: #333333;
-      --bio-color: #ffffff;
+      --card-bg: #2b2b2b;
     }
 
     body {
@@ -38,37 +38,54 @@
       text-decoration: none;
       margin: 0 10px;
       font-weight: bold;
-      transition: color 0.3s;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
+      margin: 30px 0;
       color: var(--text-color);
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-      max-width: 800px;
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
       margin: auto;
-      color: var(--text-color);
     }
 
-    li {
-      font-weight: bold;
-      margin-bottom: 5px;
+    .character-card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .character-card:hover {
+      transform: scale(1.03);
+    }
+
+    .character-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .character-content {
+      padding: 15px;
+    }
+
+    .character-content h2 {
+      margin: 10px 0 5px;
       font-size: 1.2em;
       color: var(--text-color);
     }
 
-    .biography {
-      margin-top: 5px;
-      margin-bottom: 25px;
-      padding-left: 10px;
+    .character-content p {
       font-style: italic;
       font-weight: normal;
-      color: var(--bio-color);
+      color: var(--text-color);
     }
 
     .theme-toggle {
@@ -80,7 +97,6 @@
       font-size: 24px;
       cursor: pointer;
       color: var(--text-color);
-      transition: color 0.3s;
     }
   </style>
 </head>
@@ -95,28 +111,72 @@
 
   <h1>Les Personnages</h1>
 
-  <ul>
-    <li>
-      Tintin
-      <p class="biography">Jeune reporter intrépide, courageux et curieux, Tintin est le héros principal des aventures.</p>
-    </li>
-    <li>
-      Milou
-      <p class="biography">Fidèle fox-terrier de Tintin, toujours prêt à l’aider dans ses enquêtes.</p>
-    </li>
-    <li>
-      Capitaine Haddock
-      <p class="biography">Marin bourru mais au grand cœur, célèbre pour ses jurons colorés et son amitié avec Tintin.</p>
-    </li>
-    <li>
-      Professeur Tournesol
-      <p class="biography">Scientifique distrait et inventeur génial, ami proche de Tintin et Haddock.</p>
-    </li>
-    <li>
-      Dupond et Dupont
-      <p class="biography">Deux policiers maladroits, toujours confondus, mais très dévoués à leur travail.</p>
-    </li>
-  </ul>
+  <div class="characters-grid">
+    <!-- Exemple de carte personnage -->
+    <div class="character-card">
+      <img src="images/tintin.jpg" alt="Tintin">
+      <div class="character-content">
+        <h2>Tintin</h2>
+        <p>Jeune reporter intrépide, courageux et curieux, toujours prêt à défendre la vérité.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/milou.jpg" alt="Milou">
+      <div class="character-content">
+        <h2>Milou</h2>
+        <p>Fidèle fox-terrier de Tintin, rusé, attachant et toujours à ses côtés.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/haddock.jpg" alt="Capitaine Haddock">
+      <div class="character-content">
+        <h2>Capitaine Haddock</h2>
+        <p>Marin bougon au cœur tendre, célèbre pour ses jurons savoureux et sa loyauté.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/tournesol.jpg" alt="Professeur Tournesol">
+      <div class="character-content">
+        <h2>Professeur Tournesol</h2>
+        <p>Scientifique génial et distrait, inventeur d’objets farfelus.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/dupond.jpg" alt="Dupond et Dupont">
+      <div class="character-content">
+        <h2>Dupond & Dupont</h2>
+        <p>Deux policiers presque jumeaux, maladroits mais déterminés à faire leur devoir.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/bianca.jpg" alt="Bianca Castafiore">
+      <div class="character-content">
+        <h2>Bianca Castafiore</h2>
+        <p>La célèbre cantatrice, "le Rossignol milanais", grande amie de Tournesol.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/bergamot.jpg" alt="Général Alcazar">
+      <div class="character-content">
+        <h2>Général Alcazar</h2>
+        <p>Chef militaire sud-américain, ami et parfois rival de Tintin.</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <img src="images/rastapopoulos.jpg" alt="Rastapopoulos">
+      <div class="character-content">
+        <h2>Rastapopoulos</h2>
+        <p>Millionnaire et criminel rusé, ennemi juré de Tintin.</p>
+      </div>
+    </div>
+  </div>
 
   <script>
     function setThemeIcon(theme) {
@@ -125,10 +185,9 @@
     }
 
     function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
+      const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
+      document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       setThemeIcon(newTheme);
     }
