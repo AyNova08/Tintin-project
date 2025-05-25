@@ -1,126 +1,137 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Les Personnages</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --nav-color: #dddddd;
-        }
-        [data-theme="dark"] {
-            --bg-color: #1e1e1e;
-            --text-color: #ffffff;
-            --nav-color: #333333;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        nav {
-            background-color: var(--nav-color);
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        /* Forcer la couleur partout dans la liste, y compris p à l'intérieur de li */
-        ul, ul * {
-            color: var(--text-color) !important;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-            font-weight: bold;
-            cursor: default;
-        }
-        .biography {
-            margin-top: -10px;
-            margin-bottom: 20px;
-            padding-left: 25px;
-            font-style: italic;
-            font-weight: normal;
-        }
-        h1 {
-            color: var(--text-color);
-            margin-bottom: 30px;
-        }
-        .theme-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-color);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Les Personnages</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --nav-color: #dddddd;
+      --bio-color: #444444;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1e1e1e;
+      --text-color: #ffffff;
+      --nav-color: #333333;
+      --bio-color: #cccccc;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav {
+      background-color: var(--nav-color);
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    li {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 1.2em;
+    }
+
+    .biography {
+      margin-top: 5px;
+      margin-bottom: 25px;
+      padding-left: 10px;
+      font-style: italic;
+      font-weight: normal;
+      color: var(--bio-color);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: color 0.3s;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Accueil</a> |
-        <a href="personnages.html">Personnages</a> |
-        <a href="albums.html">Albums</a>
-    </nav>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">☀️</button>
+  <nav>
+    <a href="index.html">Accueil</a> |
+    <a href="personnages.html">Personnages</a> |
+    <a href="albums.html">Albums</a>
+  </nav>
 
-    <h1>Les Personnages</h1>
+  <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">☀️</button>
 
-    <ul>
-        <li>Tintin
-            <p class="biography">
-                Jeune reporter intrépide, courageux et curieux, Tintin est le héros principal des aventures.
-            </p>
-        </li>
-        <li>Milou
-            <p class="biography">
-                Fidèle fox-terrier de Tintin, toujours prêt à l’aider dans ses enquêtes.
-            </p>
-        </li>
-        <li>Capitaine Haddock
-            <p class="biography">
-                Marin bourru mais au grand cœur, célèbre pour ses jurons colorés et son amitié avec Tintin.
-            </p>
-        </li>
-        <li>Professeur Tournesol
-            <p class="biography">
-                Scientifique distrait et inventeur génial, ami proche de Tintin et Haddock.
-            </p>
-        </li>
-        <li>Dupond et Dupont
-            <p class="biography">
-                Deux policiers maladroits, toujours confondus, mais très dévoués à leur travail.
-            </p>
-        </li>
-    </ul>
+  <h1>Les Personnages</h1>
 
-    <script>
-        function setThemeIcon(theme) {
-            const btn = document.querySelector('.theme-toggle');
-            btn.textContent = theme === 'dark' ? '🌙' : '☀️';
-        }
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            setThemeIcon(newTheme);
-        }
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        window.onload = () => setThemeIcon(savedTheme);
-    </script>
+  <ul>
+    <li>
+      Tintin
+      <p class="biography">Jeune reporter intrépide, courageux et curieux, Tintin est le héros principal des aventures.</p>
+    </li>
+    <li>
+      Milou
+      <p class="biography">Fidèle fox-terrier de Tintin, toujours prêt à l’aider dans ses enquêtes.</p>
+    </li>
+    <li>
+      Capitaine Haddock
+      <p class="biography">Marin bourru mais au grand cœur, célèbre pour ses jurons colorés et son amitié avec Tintin.</p>
+    </li>
+    <li>
+      Professeur Tournesol
+      <p class="biography">Scientifique distrait et inventeur génial, ami proche de Tintin et Haddock.</p>
+    </li>
+    <li>
+      Dupond et Dupont
+      <p class="biography">Deux policiers maladroits, toujours confondus, mais très dévoués à leur travail.</p>
+    </li>
+  </ul>
+
+  <script>
+    function setThemeIcon(theme) {
+      const btn = document.querySelector('.theme-toggle');
+      btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      setThemeIcon(newTheme);
+    }
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    window.onload = () => setThemeIcon(savedTheme);
+  </script>
 </body>
 </html>
