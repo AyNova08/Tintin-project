@@ -2,20 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Les Personnages</title>
+  <title>Les Personnages de Tintin</title>
   <style>
     :root {
       --bg-color: #ffffff;
       --text-color: #000000;
       --nav-color: #dddddd;
-      --card-bg: #f9f9f9;
+      --card-bg: #f2f2f2;
     }
 
     [data-theme="dark"] {
       --bg-color: #1e1e1e;
       --text-color: #ffffff;
       --nav-color: #333333;
-      --card-bg: #2b2b2b;
+      --card-bg: #2a2a2a;
     }
 
     body {
@@ -37,54 +37,11 @@
       color: var(--text-color);
       text-decoration: none;
       margin: 0 10px;
-      font-weight: bold;
     }
 
     h1 {
       text-align: center;
-      margin: 30px 0;
-      color: var(--text-color);
-    }
-
-    .characters-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .character-card {
-      background-color: var(--card-bg);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s;
-    }
-
-    .character-card:hover {
-      transform: scale(1.03);
-    }
-
-    .character-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .character-content {
-      padding: 15px;
-    }
-
-    .character-content h2 {
-      margin: 10px 0 5px;
-      font-size: 1.2em;
-      color: var(--text-color);
-    }
-
-    .character-content p {
-      font-style: italic;
-      font-weight: normal;
+      margin-bottom: 30px;
       color: var(--text-color);
     }
 
@@ -98,6 +55,44 @@
       cursor: pointer;
       color: var(--text-color);
     }
+
+    .grid-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .character-card {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .character-card:hover {
+      transform: scale(1.05);
+    }
+
+    .character-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .character-card h2 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .character-card p {
+      font-size: 14px;
+    }
+
   </style>
 </head>
 <body>
@@ -109,72 +104,69 @@
 
   <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">☀️</button>
 
-  <h1>Les Personnages</h1>
+  <h1>Les Personnages de Tintin</h1>
 
-  <div class="characters-grid">
-    <!-- Exemple de carte personnage -->
+  <div class="grid-container">
+    <!-- Tu peux remplacer les URLs par tes propres images locales (ex: images/tintin.jpg) -->
     <div class="character-card">
-      <img src="images/tintin.jpg" alt="Tintin">
-      <div class="character-content">
-        <h2>Tintin</h2>
-        <p>Jeune reporter intrépide, courageux et curieux, toujours prêt à défendre la vérité.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/tintin.jpg" alt="Tintin">
+      <h2>Tintin</h2>
+      <p>Jeune reporter intrépide, courageux et curieux, toujours prêt à résoudre des mystères.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/milou.jpg" alt="Milou">
-      <div class="character-content">
-        <h2>Milou</h2>
-        <p>Fidèle fox-terrier de Tintin, rusé, attachant et toujours à ses côtés.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/milou.jpg" alt="Milou">
+      <h2>Milou</h2>
+      <p>Le fidèle fox-terrier de Tintin, malin et courageux.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/haddock.jpg" alt="Capitaine Haddock">
-      <div class="character-content">
-        <h2>Capitaine Haddock</h2>
-        <p>Marin bougon au cœur tendre, célèbre pour ses jurons savoureux et sa loyauté.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/capitaine-haddock.jpg" alt="Haddock">
+      <h2>Capitaine Haddock</h2>
+      <p>Marin colérique mais loyal, célèbre pour ses jurons et sa loyauté envers Tintin.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/tournesol.jpg" alt="Professeur Tournesol">
-      <div class="character-content">
-        <h2>Professeur Tournesol</h2>
-        <p>Scientifique génial et distrait, inventeur d’objets farfelus.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/professeur-tournesol.jpg" alt="Tournesol">
+      <h2>Professeur Tournesol</h2>
+      <p>Scientifique génial, distrait mais inventif.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/dupond.jpg" alt="Dupond et Dupont">
-      <div class="character-content">
-        <h2>Dupond & Dupont</h2>
-        <p>Deux policiers presque jumeaux, maladroits mais déterminés à faire leur devoir.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/dupond.jpg" alt="Dupond et Dupont">
+      <h2>Dupond & Dupont</h2>
+      <p>Deux policiers maladroits mais déterminés à faire respecter la loi.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/bianca.jpg" alt="Bianca Castafiore">
-      <div class="character-content">
-        <h2>Bianca Castafiore</h2>
-        <p>La célèbre cantatrice, "le Rossignol milanais", grande amie de Tournesol.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/la-castafiore.jpg" alt="La Castafiore">
+      <h2>La Castafiore</h2>
+      <p>Chanteuse d’opéra exubérante et grande amie du capitaine Haddock.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/bergamot.jpg" alt="Général Alcazar">
-      <div class="character-content">
-        <h2>Général Alcazar</h2>
-        <p>Chef militaire sud-américain, ami et parfois rival de Tintin.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/rastapopoulos.jpg" alt="Rastapopoulos">
+      <h2>Rastapopoulos</h2>
+      <p>Grand méchant des aventures, riche, sournois et sans scrupule.</p>
     </div>
-
     <div class="character-card">
-      <img src="images/rastapopoulos.jpg" alt="Rastapopoulos">
-      <div class="character-content">
-        <h2>Rastapopoulos</h2>
-        <p>Millionnaire et criminel rusé, ennemi juré de Tintin.</p>
-      </div>
+      <img src="https://www.tintin.com/images/tintin/characters/seraphin-lampion.jpg" alt="Séraphin Lampion">
+      <h2>Séraphin Lampion</h2>
+      <p>Représentant d’assurances bavard et collant.</p>
+    </div>
+    <div class="character-card">
+      <img src="https://www.tintin.com/images/tintin/characters/general-alcazar.jpg" alt="Général Alcazar">
+      <h2>Général Alcazar</h2>
+      <p>Chef militaire sud-américain, parfois ami parfois rival.</p>
+    </div>
+    <div class="character-card">
+      <img src="https://www.tintin.com/images/tintin/characters/abdallah.jpg" alt="Abdallah">
+      <h2>Abdallah</h2>
+      <p>Fils du cheik Bab El Ehr, turbulent et capricieux.</p>
+    </div>
+    <div class="character-card">
+      <img src="https://www.tintin.com/images/tintin/characters/nestor.jpg" alt="Nestor">
+      <h2>Nestor</h2>
+      <p>Majordome fidèle du château de Moulinsart.</p>
+    </div>
+    <div class="character-card">
+      <img src="https://www.tintin.com/images/tintin/characters/bianca.jpg" alt="Bianca">
+      <h2>Bianca Castafiore</h2>
+      <p>La "diva" célèbre pour son air de "la Castafiore".</p>
     </div>
   </div>
 
@@ -192,11 +184,9 @@
       setThemeIcon(newTheme);
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      setThemeIcon(savedTheme);
-    });
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    window.onload = () => setThemeIcon(savedTheme);
   </script>
 </body>
 </html>
